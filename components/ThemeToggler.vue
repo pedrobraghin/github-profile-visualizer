@@ -11,7 +11,7 @@ const themeMap = {
 
 <template>
   <button
-    class="flex items-center gap-2 tracking-widest font-medium"
+    class="flex items-center gap-2 tracking-widest font-medium dark:text-primary-light"
     @click="toggleTheme"
   >
     {{ themeMap[theme] }}

@@ -7,7 +7,10 @@ const { user } = defineProps<{
   user: IGitHubUser;
 }>();
 
-console.log(user);
+const blogLink =
+  user.blog?.startsWith('http') || user.blog?.startsWith('www')
+    ? user.blog
+    : 'https://' + user.blog;
 </script>
 <template>
   <section
@@ -79,7 +82,7 @@ console.log(user);
           icon="mdi:link-variant"
           :name="user.blog"
           :active="!!user.blog"
-          :link="user.blog"
+          :link="blogLink"
         />
         <SocialLink
           icon="heroicons:building-office-2-solid"

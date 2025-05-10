@@ -2,7 +2,6 @@
 defineProps<{
   onInput: (text: string) => void;
   onSearch: () => void;
-  debounce?: number;
   disabled?: boolean;
 }>();
 </script>
@@ -20,6 +19,7 @@ defineProps<{
       class="flex-1 h-full bg-transparent focus:outline-none focus:ring-0 dark:text-secondary-light"
       type="text"
       @input="e => onInput((e.target as HTMLInputElement).value)"
+      @keydown.enter="onSearch"
     />
     <button
       :disabled="disabled"
